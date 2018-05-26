@@ -1,27 +1,29 @@
 ﻿using System;
 using System.IO;
 
-/* Write a program that enters file name along with its full file path (e.g. C:\WINDOWS\win.ini), 
+/**<remark>
+ * Write a program that enters file name along with its full file path (e.g. C:\WINDOWS\win.ini), 
  * reads its contents and prints it on the console. Find in MSDN how to use System.IO.File.ReadAllText(…). 
  * Be sure to catch all possible exceptions and print user-friendly error messages.
  * 
  * Напишите программу, которая вводит имя файла вместе с полным адресом к файлу (например, C: \ WINDOWS \ win.ini),
  * считывает его содержимое и печатает его на консоли. Найти в MSDN, как использовать System.IO.File.ReadAllText (...).
  * Обязательно воспользуйтесь всеми исключениями и напечатайте понятные сообщения об ошибках.
- * https://msdn.microsoft.com/ru-ru/library/system.exception(v=vs.110).aspx */
+ * https://msdn.microsoft.com/ru-ru/library/system.exception(v=vs.110).aspx
+ * </remark>*/
 
 namespace _20180306_Task3_Exception
 {
-    class Program
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine("Enter filename and path to him (e.g. C:\\WINDOWS\\win.ini)");
             string file = Console.ReadLine();
 
             try
             {
-                Console.WriteLine(File.ReadAllText(file));
+                if (file != null) Console.WriteLine(File.ReadAllText(file));
             }
             catch (DriveNotFoundException ex)
             {
